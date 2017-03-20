@@ -1,0 +1,64 @@
+<meta charset="utf-8">
+<p>ok</p>
+<div id="container"></div>
+<div id="container2"></div>
+<div id="compras"></div>
+<script src="../bower_components/react/react.js"></script>
+<script src="../bower_components/react/react-dom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+
+<script>
+  var ExampleApplication = React.createClass({
+    render: function() {
+      var elapsed = Math.round(this.props.elapsed  / 100);
+      var seconds = elapsed / 10 + (elapsed % 10 ? '' : '.0' );
+      var message =
+        'O React está rodando com sucesso há ' + seconds + ' seconds.';
+        return React.DOM.p(null, message);
+      }
+  });
+
+  var ExampleApplicationFactory = React.createFactory(ExampleApplication);
+  var start = new Date().getTime();
+
+  setInterval(function() {
+    ReactDOM.render(ExampleApplicationFactory({elapsed: new Date().getTime() - start}), document.getElementById('container'));
+  }, 50);
+</script>
+
+<script type="text/babel">
+	var Counter = React.createClass({
+		getInitialState: function () {
+			return { count: 0 };
+		},
+		handleClick: function () {
+			this.setState({
+				count: this.state.count + 1,
+			});
+		},
+		render: function () {
+			return (
+				<button onClick={this.handleClick}>
+				Click me! Number of clicks: {this.state.count}
+				</button>
+			);
+		}
+	});
+	ReactDOM.render(
+		<Counter />,
+		document.getElementById('container2')
+	);
+
+	var frutas = ['Banana', 'Maçã', 'Uva'];
+
+	ReactDOM.render(
+		<div>
+		{
+		frutas.map(function (fruta) {
+			return <li>{fruta}</li>
+		})
+		}
+		</div>,
+  		document.getElementById('compras')
+	);
+</script>

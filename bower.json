@@ -1,0 +1,20 @@
+{
+  "name": "init-react",
+  "authors": [
+    "Alefe Variani <alefevariani18@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^15.4.2"
+  }
+}
